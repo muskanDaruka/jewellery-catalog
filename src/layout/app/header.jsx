@@ -8,8 +8,8 @@ function Header() {
   const router = useRouter();
 
   const route = [
-    { id: 1, label: "Necklace", path: "#" },
     { id: 2, label: "Rings", path: "/engagement" },
+    { id: 1, label: "Necklace", path: "#" },
     { id: 3, label: "Bracelets", path: "#" },
     { id: 4, label: "Earrings", path: "#" },
     { id: 5, label: "Pendants", path: "#" },
