@@ -30,7 +30,7 @@ const CustomSlider = ({ images }) => {
               alt={`Slide ${index + 1}`}
               width={500}
               height={500}
-              className="w-screen h-screen object-fill"
+              className="w-screen h-screen object-fit"
               priority
             />
           </SwiperSlide>
