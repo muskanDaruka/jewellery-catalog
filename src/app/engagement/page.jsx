@@ -9,6 +9,7 @@ import Filters from "@/components/Engagement/Filters";
 // import protrait from "../../../public/images/engagement/portrait.png";
 // import protraitPic from "../../../public/images/engagement/portrait-pic.png";
 import HorizontalList from "@/components/HorizontalList";
+import { FaArrowLeft } from "react-icons/fa";
 
 function Page() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,14 @@ function Page() {
     return (
         <>
             <div className="font-montserrat pt-24">
+                <div className="xl:pt-8 pt-4 xl:px-8 px-4 cursor-pointer">
+                        <button
+                          onClick={() => back()}
+                          className="m-2 text-xl border-0 bg-white flex items-center font-serif text-[#332421]"
+                        >
+                          <FaArrowLeft size={22} />
+                        </button>
+                      </div>
                 {/* <div className="absolute hidden lg:block">
                     <Image
                         className="object-cover"
@@ -63,7 +72,7 @@ function Page() {
                         />
                     </div>
                 </div> */}
-                <div className="pt-12">
+                <div className="xl:pt-8 pt-4">
                     <HorizontalList data={list} />
                 </div>
                 <div className="relative place-items-start mt-4 cursor-pointer hidden lg:block m-8">

@@ -58,7 +58,10 @@ const Home = () => {
   ];
 
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory" style={{
+      scrollbarWidth: 'none',
+      msOverflowStyle: 'none',
+    }}>
       <div id="rings" className="h-screen snap-start flex items-center justify-center">
         <CustomSlider images={slider1Images} />
       </div>
