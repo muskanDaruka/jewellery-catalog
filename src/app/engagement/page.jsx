@@ -10,8 +10,10 @@ import Filters from "@/components/Engagement/Filters";
 // import protraitPic from "../../../public/images/engagement/portrait-pic.png";
 import HorizontalList from "@/components/HorizontalList";
 import { FaArrowLeft } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 function Page() {
+    const { back } = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [inStock, setInStock] = useState(false);
     const list = [
