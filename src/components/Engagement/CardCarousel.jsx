@@ -33,7 +33,7 @@ const ImageCarousel = ({ link, className }) => {
                 >
                     {images.map((image) => (
                         <SwiperSlide key={image.id} className="flex justify-center items-center">
-                            <Link href={link} className="w-full h-full flex items-center justify-center">
+                            {/* <Link href={link} className="w-full h-full flex items-center justify-center"> */}
                                 <Image
                                     src={image.src}
                                     alt={`Slide ${image.id}`}
@@ -41,7 +41,7 @@ const ImageCarousel = ({ link, className }) => {
                                     height={400}
                                     className="w-full h-auto object-cover shadow-md cursor-pointer transition-transform duration-600 ease-out hover:scale-110"
                                 />
-                            </Link>
+                            {/* </Link> */}
                         </SwiperSlide>
                     ))}
                 </Swiper>
