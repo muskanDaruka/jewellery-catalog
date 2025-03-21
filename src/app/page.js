@@ -1,16 +1,16 @@
 import React from "react";
 import CustomSlider from "@/components/CatalogSwiper/CustomSlider";
-import model1 from '../../public/images/Rings/model1.png'
-import ring7 from '../../public/images/Rings/ring7.jpg'
-import rings6 from '../../public/images/rings6.jpg'
-import ring2 from '../../public/images/ring2.jpg'
+import rings7 from '../../public/images/rings7.jpg'
+import ring13 from '../../public/images/Rings/ring12.jpg'
+import ring10 from '../../public/images/Rings/ring10.jpg'
+import ring6 from '../../public/images/Rings/ring6.png'
 import necklace1 from '../../public/images/necklace/neckpiece1.jpeg'
-import necklace2 from '../../public/images/necklace/neckpiece2.jpeg'
+import necklace2 from '../../public/images/necklace/necklace6.jpg'
 import necklace3 from '../../public/images/necklace/neckpiece3.jpeg'
 import necklace4 from '../../public/images/necklace/necklace4.jpg'
 import bracelet1 from '../../public/images/bracelet1.jpg'
 import bracelet2 from '../../public/images/bracelet2.jpg'
-import bracelet3 from '../../public/images/bracelet3.jpg'
+import bracelet3 from '../../public/images/bracelet3.png'
 import bracelet4 from '../../public/images/bracelet4.jpeg'
 import earring1 from '../../public/images/earring1.jpg'
 import earring5 from '../../public/images/earring5.png'
@@ -23,10 +23,10 @@ import pendant4 from '../../public/images/pendant4.jpg'
 
 const Home = () => {
   const slider1Images = [
-    { image: model1, url: "/engagement" },
-    { image: ring7, url: "/engagement" },
-    { image: rings6, url: "/engagement" },
-    { image: ring2, url: "/engagement" }
+    { image: rings7, url: "/engagement" },
+    { image: ring13, url: "/engagement" },
+    { image: ring10, url: "/engagement" },
+    { image: ring6, url: "/engagement" }
   ];
 
   const slider2Images = [
