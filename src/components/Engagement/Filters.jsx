@@ -7,6 +7,7 @@ import Image from 'next/image';
 function Filters() {
     const [toggleMetal, setToggleMetal] = useState(true);
     const [toggleStyle, setToggleStyle] = useState(true);
+    const [togglePrice, setTogglePrice] = useState(true);
     const [toggleWidth, setToggleWidth] = useState(true);
     const [toggleGemstone, setToggleGemstone] = useState(true);
     const [toggleEngravable, setToggleEngravable] = useState(true);
@@ -107,31 +108,39 @@ function Filters() {
                         </div>
                     )}
                 </div>
-                <div className='xl:mt-0 mt-6'>
+                <div className="xl:mt-0 mt-6">
                     <div className="space-y-4">
-                        <h3 className="text-xl font-medium text-[#332421] hover:text-[#FF5F15]">Price</h3>
-                        <input type="range" className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-black" />
-                        <div className="flex justify-between text-sm text-gray-700">
-                            <div className="flex items-center gap-2 xl:mt-0 mt-2">
-                                <div className="relative flex items-center">
-                                    <span className="absolute left-2 text-[#332421] hover:text-[#FF5F15]">₹</span>
-                                    <input
-                                        type="number"
-                                        className="pl-6 pr-2 py-1 border border-gray-300 rounded-md w-20 text-center"
-                                    />
-                                </div>
-
-                                <span className="text-sm text-[#332421] hover:text-[#FF5F15]">to</span>
-
-                                <div className="relative flex items-center">
-                                    <span className="absolute left-2 text-[#332421] hover:text-[#FF5F15]">₹</span>
-                                    <input
-                                        type="number"
-                                        className="pl-6 pr-2 py-1 border border-gray-300 rounded-md w-20 text-center"
-                                    />
-                                </div>
-                            </div>
+                        <div className="flex items-center justify-between cursor-pointer" onClick={() => setTogglePrice(!togglePrice)}>
+                            <h3 className="text-xl font-medium text-[#332421] hover:text-[#FF5F15]">Price</h3>
+                            <Icon icon={togglePrice ? "mdi:chevron-up" : "mdi:chevron-down"} className="text-xl text-[#332421]" />
                         </div>
+                        {togglePrice && (
+                            <>
+                                <input
+                                    type="range"
+                                    className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-black"
+                                />
+                                <div className="flex justify-between text-sm text-gray-700">
+                                    <div className="flex items-center gap-2 xl:mt-0 mt-2">
+                                        <div className="relative flex items-center">
+                                            <span className="absolute left-2 text-[#332421] hover:text-[#FF5F15]">₹</span>
+                                            <input
+                                                type="number"
+                                                className="pl-6 pr-2 py-1 border border-gray-300 rounded-md w-20 text-center"
+                                            />
+                                        </div>
+                                        <span className="text-sm text-[#332421] hover:text-[#FF5F15]">to</span>
+                                        <div className="relative flex items-center">
+                                            <span className="absolute left-2 text-[#332421] hover:text-[#FF5F15]">₹</span>
+                                            <input
+                                                type="number"
+                                                className="pl-6 pr-2 py-1 border border-gray-300 rounded-md w-20 text-center"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
                 <div className='xl:mt-0 mt-6'>
