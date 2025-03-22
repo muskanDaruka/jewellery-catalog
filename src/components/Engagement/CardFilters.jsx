@@ -89,7 +89,7 @@ function CardFilters({ metalType, shape, carat }) {
                                                 </span>
                                             </div>
                                         ) : title === 'Shape' && 'img' in item ? (
-                                            <div className="w-10 flex items-center justify-center">
+                                            <div className={`w-10 flex items-center justify-center ${selected[title] === item.id ? 'border border-black' : 'hover:border hover:border-black'}`}>
                                                 <Image src={item.img} alt={item.alt || ''} className="w-full" />
                                             </div>
                                         ) : title === 'Carat' && 'text' in item ? (
