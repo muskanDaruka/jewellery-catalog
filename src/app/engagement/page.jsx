@@ -160,7 +160,6 @@ function Page() {
                         </select>
                     </div>
                 </div>
-                {/* Cards Section */}
                 <div className="w-full relative">
                     <Cards />
                 </div>
