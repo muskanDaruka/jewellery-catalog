@@ -1,6 +1,6 @@
 "use client";
 import { EmblaOptionsType } from "embla-carousel";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import img1 from "../../../../public/images/ring1.jpg";
 // import img2 from "@/../public/images/engagement/ring12.jpg";
 // import img3 from "@/../public/images/categories/ring.jpg";
@@ -29,14 +29,15 @@ const OPTIONS = {};
 
 const ProductDetail = () => {
   const { back } = useRouter();
+  const [isZoomed, setIsZoomed] = useState(false);
   const [selectedShape, setSelectedShape] = useState([""]);
   const [selectedCarat, setSelectedCarat] = useState([""]);
   const [selectedQuality, setSelectedQuality] = useState([""]);
 
   const sliderImages = [
     { id: 1, img: img1 },
-    // { id: 2, img: img2 },
-    // { id: 3, img: img3 },
+    // { id: 2, img: img1 },
+    // { id: 3, img: img1 },
   ];
 
   const metalTypes = [
@@ -59,7 +60,7 @@ const ProductDetail = () => {
     { id: "princess", img: princess, alt: "princess" },
     { id: "radiantSq", img: radiantSq, alt: "radiantSq" },
   ];
-  const caratWeights = ["1", "1 ½", "2", "2 ½", "3", "3 ½", "4", "4 ½","5"];
+  const caratWeights = ["1", "1 ½", "2", "2 ½", "3", "3 ½", "4", "4 ½", "5"];
   const diamondQuality = ["Best - D, VVS", "Better - E, VS1", "Good - FG, VS2"];
 
   const colors = [
@@ -98,8 +99,12 @@ const ProductDetail = () => {
         </button>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-8 gap-2 font-montserrat px-6 mb-6 cursor-pointer">
-        <div className="flex flex-col items-center justify-center">
-          <ProductDetailSlider slides={sliderImages} options={OPTIONS} />
+        <div className="relative w-full h-auto overflow-hidden cursor-crosshair" 
+          onMouseEnter={() => setIsZoomed(true)}
+          onMouseLeave={() => setIsZoomed(false)}>
+          {/* <ProductDetailSlider slides={sliderImages} options={OPTIONS} /> */}
+          <Image src={img1} alt="Product Image" width={400} height={400} className={`object-cover w-full h-auto rounded-md transition-transform duration-300 ${isZoomed ? "scale-150" : "scale-100"
+            }`} />
         </div>
         <div className="space-y-4">
           <h1 className="xl:text-2xl text-xl font-semibold text-[#332421] hover:text-[#FF5F15]">
@@ -123,29 +128,28 @@ const ProductDetail = () => {
             <div className="flex flex-wrap gap-2">
               {shapes.map((shape) => (
                 <label key={shape.id} className="relative">
-                <input
-                  type="checkbox"
-                  className="hidden"
-                  checked={selectedShape.includes(shape.id)}
-                  onChange={() => toggleShape(shape.id)}
-                />
-                <div className={`xl:w-10 xl:h-10 w-8 h-8 rounded-md p-1 flex items-center justify-center transition ${
-                  selectedShape.includes(shape.id) ? "border " : "border-[#332421]"
-                }`}>
-                  <Image src={shape.img.src} alt={shape.alt} width={200} height={400} className="w-full h-full object-contain" />
-                </div>
-              </label>
+                  <input
+                    type="checkbox"
+                    className="hidden"
+                    checked={selectedShape.includes(shape.id)}
+                    onChange={() => toggleShape(shape.id)}
+                  />
+                  <div className={`xl:w-10 xl:h-10 w-8 h-8 rounded-md p-1 flex items-center justify-center transition ${selectedShape.includes(shape.id) ? "border " : "border-[#332421]"
+                    }`}>
+                    <Image src={shape.img.src} alt={shape.alt} width={200} height={400} className="w-full h-full object-contain" />
+                  </div>
+                </label>
               ))}
             </div>
           </div>
           <div className="w-full">
-                  <h1 className="font-bold mb-1 text-[#332421]">Color:</h1>
-                  <Selector options={colors} customClass=""/>
-               </div>
+            <h1 className="font-bold mb-1 text-[#332421]">Color:</h1>
+            <Selector options={colors} customClass="" />
+          </div>
           <div className="">
             <h1 className="font-bold mb-1 text-[#332421]">Carat Weight:</h1>
             <div className="flex gap-2">
-            {caratWeights.map((carat) => (
+              {caratWeights.map((carat) => (
                 <label key={carat} className="relative">
                   <input
                     type="checkbox"
@@ -153,9 +157,8 @@ const ProductDetail = () => {
                     checked={selectedCarat.includes(carat)}
                     onChange={() => toggleCarat(carat)}
                   />
-                  <div className={`px-3 py-1 rounded-md transition ${
-                    selectedCarat.includes(carat) ? "border " : "border-[#332421]"
-                  }`}>
+                  <div className={`px-3 py-1 rounded-md transition ${selectedCarat.includes(carat) ? "border " : "border-[#332421]"
+                    }`}>
                     {carat}
                   </div>
                 </label>
@@ -165,7 +168,7 @@ const ProductDetail = () => {
           <div className="mt-6">
             <h1 className="font-bold mb-1 text-[#332421]">Diamond Quality:</h1>
             <div className="grid grid-cols-3 gap-2">
-            {diamondQuality.map((quality) => (
+              {diamondQuality.map((quality) => (
                 <label key={quality} className="relative">
                   <input
                     type="checkbox"
@@ -173,9 +176,8 @@ const ProductDetail = () => {
                     checked={selectedQuality.includes(quality)}
                     onChange={() => toggleQuality(quality)}
                   />
-                  <div className={`px-3 py-1 border rounded-md transition ${
-                    selectedQuality.includes(quality) ? "border bg-gray-300" : "border-[#332421] "
-                  }`}>
+                  <div className={`px-3 py-1 border rounded-md transition ${selectedQuality.includes(quality) ? "border bg-gray-300" : "border-[#332421] "
+                    }`}>
                     {quality}
                   </div>
                 </label>

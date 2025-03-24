@@ -18,6 +18,12 @@ const ProductDetailSlider = ({ slides, options, optionsThumbs }) => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaMainApi);
 
+  const onThumbClick = (index) => {
+    if (!emblaMainApi) return;
+    emblaMainApi.scrollTo(index);
+    setSelectedIndex(index);
+  }; 
+  
   const onSelect = useCallback(() => {
     if (!emblaMainApi || !emblaThumbsApi) return;
     setSelectedIndex(emblaMainApi.selectedScrollSnap());
